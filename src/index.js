@@ -10,9 +10,9 @@ const debounce = require('lodash.debounce');
 refs.inputRef.addEventListener('input', debounce(searchInput, DEBOUNCE_DELAY));
 
 function searchInput(elem) {
-    const name = elem.target.value.trim().toLoverCase();
-    console.log(name);
-    fetchCountries(name)
+    const country = refs.inputRef;
+    console.log(country);
+    fetchCountries(country)
         .then(data => {
             const markup = createMarkup(data);
             refs.cardInfo.innerHTML = markup;

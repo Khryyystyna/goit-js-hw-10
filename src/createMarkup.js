@@ -2,7 +2,7 @@ export function createMarkup({ name, capital, population, flags, languages }) {
     return  `<div class="country-info">
         <div class="country-logo">
             <img src="${flags.svg}" alt="{{name}}"></img>
-            <h2 class="country-logo-tittle">${name.official}</h2>
+            <h2 class="country-logo-tittle">${name}</h2>
         </div>
         <div class="card-body">
             <p class="body-text">Name: ${capital}</p>
