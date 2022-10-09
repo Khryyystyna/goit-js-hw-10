@@ -10,7 +10,7 @@ const debounce = require('lodash.debounce');
 refs.inputRef.addEventListener('input', debounce(searchInput, DEBOUNCE_DELAY));
 
 function searchInput(elem) {
-    const country = refs.inputRef;
+    const country = elem.target.value.trim().toLowerCase();
     console.log(country);
     fetchCountries(country)
         .then(data => {
