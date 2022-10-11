@@ -1,13 +1,31 @@
-export function createMarkup({ name, capital, population, flags, languages }) {
-    return  `<div class="country-info">
-        <div class="country-logo">
-            <img src="${flags.svg}" alt="{{name}}"></img>
-            <h2 class="country-logo-tittle">${name}</h2>
-        </div>
-        <div class="card-body">
-            <p class="body-text">Name: ${capital}</p>
-            <p class="body-text">Population: ${population}</p>
-            <p class="body-text">Languages: ${languages}</p>
-        </div>
+export { markupCountry, murkupInfo };
+
+function markupCountry({ flags, name }) {
+  return `<div class="country-item">
+      <img
+        class="country-flag"
+        src="${flags.svg}"
+        width="30px"
+        height="20px"
+      />
+      <p class="">${name.official}</p>
     </div>`;
-};
+}
+
+function murkupInfo ({ flags,name,capital,population,languages }) {
+  const lang = Object.values(languages).join(', ');
+ 
+  return ` 
+    <div class="country-item">
+    <img class="country-flag" width="60px" height="40px" src="${flags.svg}"></img>
+    <p class="country-name">${name.official}</p></div>
+    <div class="country-descr">
+    <p class="country-descr__name">Capital:
+    <span class="country-descr__full-name" >${capital}</span><p>
+    <p class="country-descr__name">Population:
+    <span class="country-full-name">  ${population}</span></p>
+    <p class="country-descr__name">Languages:
+    <span class="country-full-name" >${lang}</span></p>
+    </div>`;
+}
+
